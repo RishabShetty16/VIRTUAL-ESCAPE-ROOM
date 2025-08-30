@@ -1,0 +1,151 @@
+/* Use Poppins font for a modern look */
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Background overlay with a lighter filter for better visibility */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('BACKGROUND3.jpg');
+    background-size: cover;
+    filter: brightness(0.40); /* Lightened for better visibility */
+    z-index: -1;
+}
+
+/* Container styling */
+.container {
+    position: relative;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: rgba(50, 50, 50, 0.9); /* Semi-transparent background */
+    border-radius: 12px;
+    text-align: center;
+    color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #ff4081;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Top Navigation */
+.top-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 20px 550px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.nav-box {
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.nav-box:hover {
+    background-color: #ff4081;
+}
+
+/* Input fields */
+input[type="text"], input[type="password"] {
+    width: 90%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #555;
+    border-radius: 6px;
+    background-color: #222;
+    color: #fff;
+}
+
+/* Button styling */
+button {
+    background-color: #ff4081;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #e0005a;
+}
+
+/* Toggle text */
+.toggle-text {
+    color: #bbb;
+    margin-top: 10px;
+}
+
+.toggle-text a {
+    color: #ff4081;
+    text-decoration: none;
+}
+
+/* Feedback text styling */
+.feedback-text {
+    color: #ff4081;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.modal-content {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    color: #e0e0e0;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #e0005a;
+}

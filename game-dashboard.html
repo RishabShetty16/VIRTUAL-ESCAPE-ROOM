@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('BACKGROUND3.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Adjust the alpha for brightness */
+            z-index: 1;
+        }
+        .container {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(50, 50, 50, 0.9); /* Semi-transparent background */
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            color: #f0f0f0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Welcome to the Escape Room!</h1>
+        <button onclick="startGame()">Start Game</button>
+        <button onclick="showGameRules()">Game Rules</button>
+    </div>
+
+    <!-- Game Rules Modal -->
+    <div id="gameRulesModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeGameRules()">&times;</span>
+            <h2>Game Rules</h2>
+            <p><strong>Goal:</strong> Escape the basement by correctly answering questions in each room.</p>
+            <p><strong>Doors:</strong> The game starts with three doors; each leads to a room with a question.</p>
+            <p><strong>Answering Questions:</strong> Answer the question in each room to unlock the next door.</p>
+            <p><strong>Lives:</strong> You have two attempts per question. If you answer incorrectly twice, you’ll be sent back to the first room.</p>
+            <p><strong>Winning:</strong> Answer all questions without being sent back to escape and win the game.</p>
+            <p><strong>Restarting:</strong> If sent back to the first room, you must restart and choose doors again from the beginning.</p>
+        </div>
+    </div>
+
+    <script>
+        function startGame() {
+    window.location.href = "choose-door.html"; // Redirects to the new page with doors
+}
+
+
+        function showGameRules() {
+            document.getElementById("gameRulesModal").style.display = "flex";
+        }
+
+        function closeGameRules() {
+            document.getElementById("gameRulesModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1 Room 2 Question</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nosifer', cursive; /* Spooky font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1a1a1d;
+            color: #eaeaea;
+            background-image: url('image.png'); /* Ensure the path is correct */
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for a spooky effect */
+            z-index: 1;
+        }
+
+        .question-container {
+            position: relative;
+            text-align: center;
+            background: rgba(50, 50, 50, 0.85);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ff2e63; /* Red spooky text */
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 15px;
+            margin-top: 15px;
+            border: 2px solid #ff2e63;
+            border-radius: 10px;
+            width: 80%;
+            background-color: #333;
+            color: #eaeaea;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 30px;
+            background-color: #ff2e63;
+            color: #eaeaea;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #e94e77;
+            transform: translateY(-3px);
+        }
+
+        /* Subtle animation for added effect */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1) 50%, transparent);
+            animation: slide 30s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes slide {
+            from {
+                left: -100%;
+            }
+            to {
+                left: 100%;
+            }
+        }
+
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #ff2e63; /* Match the header color for consistency */
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="question-container">
+        <h1>Level 1 Room 2 Question</h1>
+        <p>What comes once in a minute, twice in a moment, but never in a thousand years?</p>
+        <input type="text" id="answer" placeholder="Type your answer here">
+        <button onclick="checkAnswer()">Submit</button>
+        <p id="feedback" class="feedback"></p> <!-- Feedback message -->
+    </div>
+
+    <script>
+        let attempts = 0;
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
+            const correctAnswer = "m"; // Correct answer (case insensitive)
+            const feedback = document.getElementById('feedback'); // Get feedback element
+
+            attempts++;
+            if (userAnswer === correctAnswer) {
+                feedback.textContent = "Correct! You may proceed."; // Display correct message
+                setTimeout(() => {
+                    window.location.href = "room-2-success.html"; // Redirect after a delay
+                }, 2000); // Wait 2 seconds before redirecting
+            } else if (attempts >= 2) {
+                feedback.textContent = "Wrong answer! Redirecting you back."; // Display wrong answer message
+                setTimeout(() => {
+                    window.location.href = "choose-door.html"; // Redirects back to the initial page after a delay
+                }, 2000); // Wait 2 seconds before redirecting
+            } else {
+                feedback.textContent = "Wrong answer! You have one more attempt."; // Provide feedback for wrong answer
+            }
+        }
+    </script>
+</body>
+</html>

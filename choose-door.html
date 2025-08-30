@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose a Door</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body 
+        {
+            background-image: url('threedoors2.png'); /* Ensure this is the correct image path */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+        }
+        .overlay 
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.0); /* Adjust opacity as needed */
+            z-index: 1;
+        }
+        .door-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 600px;
+        }
+        .door 
+        {
+            background: #4b545f; /* Base color */
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            width: 120px; /* Width of the button */
+            margin: 0 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+            position: absolute;
+            bottom: -35px; /* Adjust this value to bring the button down */
+            transition: none; /* No transition */
+        }
+
+        .door:hover {
+            background: #ff4081; /* Change color on hover */
+            /* Optionally add a different shadow on hover */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Shadow on hover */
+        }  
+        .door1 {
+            left: -38%; 
+            bottom: 300px; /* Adjust this value to bring the button down */
+        }
+
+        .door2 {
+            left: 48%; 
+            transform: translateX(-50%);
+            bottom: 300px; /* Adjust this value to bring the button down */
+        }
+
+        .door3 {
+            right: -37%; 
+            bottom: 300px; /* Adjust this value to bring the button down */
+        }
+        .door-video {
+            position: absolute;
+            width: 100%; /* Full width */
+            height: auto; /* Maintain aspect ratio */
+            z-index: 3; /* Ensure it appears above the overlay */
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="door-container">
+        <div class="door door1" onclick="chooseDoor(1)">Door 1</div>
+        <div class="door door2" onclick="chooseDoor(2)">Door 2</div>
+        <div class="door door3" onclick="chooseDoor(3)">Door 3</div>
+    </div>
+    <video class="door-video" id="doorVideo" autoplay muted>
+        <source src="openingdoor.mp4" type="video/mp4"> <!-- Updated path -->
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        function chooseDoor(doorNumber) {
+            const doorVideo = document.getElementById('doorVideo');
+            doorVideo.style.display = 'block'; // Show the video animation
+            doorVideo.currentTime = 0; // Reset the video to start
+
+            // Play the video
+            doorVideo.play();
+
+            // Navigate after the video ends
+            doorVideo.onended = function() {
+                window.location.href = `room-${doorNumber}.html`; // Redirect to the new page
+            };
+        }
+    </script>
+</body>
+</html>

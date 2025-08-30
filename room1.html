@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room 1 Question</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f4f6;
+        }
+        .question-container {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4b545f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff4081;
+        }
+    </style>
+</head>
+<body>
+    <div class="question-container">
+        <h1>Room 1 Question</h1>
+        <p>What comes once in a minute, twice in a moment, but never in a thousand years?</p>
+        <input type="text" id="answer" placeholder="Type your answer here">
+        <button onclick="checkAnswer()">Submit</button>
+    </div>
+
+    <script>
+        let attempts = 0;
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
+            const correctAnswer = "m"; // Correct answer (case insensitive)
+
+            attempts++;
+            if (userAnswer === correctAnswer) {
+                alert("Correct! You may proceed.");
+                // Add logic here for moving to the next step if needed
+            } else if (attempts >= 2) {
+                alert("Wrong answer! Redirecting you back.");
+                window.location.href = "choose-door.html"; // Redirects back to the initial page
+            } else {
+                alert("Wrong answer! You have one more attempt.");
+            }
+        }
+    </script>
+</body>
+</html>

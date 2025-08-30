@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <!-- Top navigation boxes -->
+    <div class="top-nav">
+        <div class="nav-box" onclick="showGameStory()">Game Story</div>
+        <div class="nav-box" onclick="showAboutUs()">About Us</div>
+    </div>
+
+    <!-- Main login/signup container -->
+    <div class="container">
+        <h1>ESCAPE ROOM</h1>
+        
+        <!-- Login Form -->
+        <div id="loginForm">
+            <h2>Login</h2>
+            <label for="username">Username</label>
+            <input type="text" id="username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+            <button onclick="login()">Login</button>
+            <p class="toggle-text">New user? <a href="#" onclick="showSignup()">Sign up</a></p>
+            <p id="loginFeedback" class="feedback-text"></p>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signupForm" style="display: none;">
+            <h2>Sign Up</h2>
+            <label for="newUsername">Username</label>
+            <input type="text" id="newUsername" required>
+            <label for="newPassword">Password</label>
+            <input type="password" id="newPassword" required>
+            <button onclick="signup()">Sign Up</button>
+            <p class="toggle-text">Already have an account? <a href="#" onclick="showLogin()">Log in</a></p>
+            <p id="signupFeedback" class="feedback-text"></p>
+        </div>
+    </div>
+
+    <!-- About Us Modal -->
+    <div id="aboutUsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAboutUs()">&times;</span>
+            <h2>About Us</h2>
+            <p>Creators of the Game:</p>
+            <ul>
+                <li>Rishab Shetty- PES1UG23AM918</li>
+                <li>Sai Prateek - PES1UG23AM256</li>
+                <li>Samarth M Bharadwaj - PES1UG23AM260</li>
+            </ul>
+        </div>
+    </div>
+        <!-- Game Story Modal -->
+        <div id="gameStoryModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeGameStory()">&times;</span>
+                <h2>Game Story</h2>
+                <p>
+                    It was the night of the full moon, and campus lay cloaked in shadows, silent but for the rustling leaves and the occasional distant howl of a stray dog. A daring PES student, lured by tales of hidden passageways and forgotten rooms, decided it would be the perfect night to explore the legendary basement beneath the college. Supposedly, strange things had been reported over the years—a maze of rooms that shifted, doors that locked themselves, and whispers echoing in the dark.
+                </p>
+                <p>
+                    The basement was colder than he’d expected, the light flickering as he took the first steps down the creaking stairs. But when he turned to head back up, the door was gone. A strange feeling settled over him as he moved from room to room, each door presenting a challenge—a question etched onto an ancient plaque.
+                </p>
+                <p>
+                    With every correct answer, the next room would open. But with every wrong answer, the basement seemed to grow darker, colder, and he would find himself right back where he started, disoriented and beginning again.
+                </p>
+                <p>
+                    Would he make it through all the doors before morning light, or would he be trapped in the college's haunted basement maze forever? Only the right answers would lead him to freedom.
+                </p>
+            </div>
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
